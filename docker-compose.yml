@@ -3,6 +3,7 @@ version: '3.3'
 services:
   mysql:
       image: mysql:5.7
+      container_name: 'my_sqldb'
       restart: always
       environment:
         MYSQL_DATABASE: 'db'
@@ -15,5 +16,19 @@ services:
         - '3306'
       volumes:
         - mysql-db:/var/lib/mysql
+
+  mongo:
+    image: mongo:latest
+    container_name: 'my_mongodb'
+    environment:
+      MONGO_INITDB_DATABASE: orders
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: 123QWEasd
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-db:/data/db
+
 volumes:
   mysql-db:
+  mongo-db:
