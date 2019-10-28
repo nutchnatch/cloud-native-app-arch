@@ -19,7 +19,7 @@ import org.template.demo.customer.CustomerRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AccountApplication.class)
-@ActiveProfiles(profiles = "test")
+@ActiveProfiles(profiles = "development")
 public class AccountApplicationTests {
 
     @Autowired

@@ -9,9 +9,9 @@ spring:
     database: MYSQL
     generate-ddl: true
   datasource:
-    url: jdbc:mysql://192.168.99.100:3306/dev
-    username: root
-    password: dbpass
+    url: jdbc:mysql://127.0.0.1:3306/db
+    username: user
+    password: 123QWEasd
 ---
 spring:
   profiles: test # <3>
