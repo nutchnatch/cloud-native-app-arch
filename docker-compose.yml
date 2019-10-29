@@ -29,6 +29,26 @@ services:
     volumes:
       - mongo-db:/data/db
 
+  neo4j:
+    image: neo4j:3.4
+    container_name: neo4j
+    environment:
+      NEO4J_AUTH: neo4j/streams
+      NEO4J_dbms_logs_debug_level: DEBUG
+    ports:
+      - '7474:7474'
+      - '6477:6477'
+      - '7687:7687'
+    volumes:
+      - neo4j-plugins:/plugins
+      - neo4j-data:/data
+      - neo4j-conf:/conf
+      - neo4j-logs:/logs
+
 volumes:
   mysql-db:
   mongo-db:
+  neo4j-plugins:
+  neo4j-data:
+  neo4j-conf:
+  neo4j-logs:
