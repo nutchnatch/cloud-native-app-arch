@@ -30,20 +30,28 @@ services:
       - mongo-db:/data/db
 
   neo4j:
-    image: neo4j:3.4
+    image: neo4j:latest
     container_name: neo4j
     environment:
-      NEO4J_AUTH: neo4j/streams
-      NEO4J_dbms_logs_debug_level: DEBUG
+      - NEO4J_AUTH=neo4j/123QWEasd
+      #NEO4J_AUTH: neo4j/123QWEasd
+      #NEO4J_dbms_logs_debug_level: DEBUG
     ports:
       - '7474:7474'
-      - '6477:6477'
+      #- '6477:6477'
       - '7687:7687'
     volumes:
       - neo4j-plugins:/plugins
       - neo4j-data:/data
       - neo4j-conf:/conf
       - neo4j-logs:/logs
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - '6379:6379'
+
 
 volumes:
   mysql-db:

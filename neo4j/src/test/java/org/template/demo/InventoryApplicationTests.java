@@ -15,7 +15,6 @@ import org.template.demo.catalog.Catalog;
 import org.template.demo.catalog.CatalogRepository;
 import org.template.demo.inventory.Inventory;
 import org.template.demo.inventory.InventoryRepository;
-import org.template.demo.inventory.InventoryStatus;
 import org.template.demo.product.Product;
 import org.template.demo.product.ProductRepository;
 import org.template.demo.shipment.Shipment;
