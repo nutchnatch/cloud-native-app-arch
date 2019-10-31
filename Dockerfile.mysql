@@ -1,0 +1,18 @@
+# https://github.com/iamdvr/prepopulated-mysql-container-example/blob/master/Dockerfile
+FROM mysql:5.7 as builder
+
+RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
+
+ENV MYSQL_ROOT_PASSWORD=root
+#ENV MYSQL_DATABASE: 'myexample'
+#ENV MYSQL_USER: 'user'
+#ENV MYSQL_PASSWORD: '123QWEasd'
+#MYSQL_ROOT_PASSWORD: '123QWEasd'
+
+COPY setup.sql /docker-entrypoint-initdb.d/
+
+RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db"]
+
+FROM mysql:5.7
+
+COPY --from=builder /initialized-db /var/lib/mysql

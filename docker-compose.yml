@@ -1,21 +1,32 @@
 version: '3.3'
 
 services:
-  mysql:
-      image: mysql:5.7
-      container_name: 'my_sqldb'
-      restart: always
-      environment:
-        MYSQL_DATABASE: 'db'
-        MYSQL_USER: 'user'
-        MYSQL_PASSWORD: '123QWEasd'
-        MYSQL_ROOT_PASSWORD: '123QWEasd'
-      ports:
-        - '3306:3306'
-      expose:
-        - '3306'
-      volumes:
-        - mysql-db:/var/lib/mysql
+  #mysql:
+  #    image: mysql:5.7
+  #    container_name: 'my_sqldb'
+  #    restart: always
+  #    environment:
+  #      MYSQL_DATABASE: 'db'
+  #      MYSQL_USER: 'user'
+  #      MYSQL_PASSWORD: '123QWEasd'
+  #      MYSQL_ROOT_PASSWORD: '123QWEasd'
+  #    ports:
+  #      - '3306:3306'
+  #    expose:
+  #      - '3306'
+  #    volumes:
+  #      - mysql-db:/var/lib/mysql
+
+  #app-mysql:
+  #  container_name: 'app_cont_sqldb'
+  #  build:
+  #    context: '.'
+  #    dockerfile: Dockerfile.mysql
+  #  ports:
+  #    - '3306:3306'
+  #  expose:
+  #    - '3306'
+
 
   mongo:
     image: mongo:latest
@@ -54,7 +65,7 @@ services:
 
 
 volumes:
-  mysql-db:
+  app-mysql-db:
   mongo-db:
   neo4j-plugins:
   neo4j-data:
