@@ -1,5 +1,6 @@
 package org.template.demo.creditcard;
 
+import org.template.demo.account.Account;
 import org.template.demo.data.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,16 +12,21 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "credit_card")
 public class CreditCard extends BaseEntity {
 
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id;
+ private Long creditId;
 
  private String number;
 
  @Enumerated(EnumType.STRING)
  private CreditCardType type;
+
+ @ManyToOne
+ @JoinColumn(name="account_id")
+ private Account account;
 
  public CreditCard(String number, CreditCardType type) {
   this.number = number;

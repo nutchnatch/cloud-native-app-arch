@@ -12,11 +12,12 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customer")
 public class Customer extends BaseEntity {
 
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id;
+ private Long customerId;
 
  private String firstName;
 
@@ -24,7 +25,8 @@ public class Customer extends BaseEntity {
 
  private String email;
 
- @OneToOne(cascade = CascadeType.ALL)
+ @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+ @JoinColumn(name = "account_id")
  private Account account;
 
  public Customer(String firstName, String lastName, String email,

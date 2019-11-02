@@ -17,15 +17,20 @@ services:
   #    volumes:
   #      - mysql-db:/var/lib/mysql
 
-  #app-mysql:
-  #  container_name: 'app_cont_sqldb'
-  #  build:
-  #    context: '.'
-  #    dockerfile: Dockerfile.mysql
-  #  ports:
-  #    - '3306:3306'
-  #  expose:
-  #    - '3306'
+  mysql:
+    container_name: 'my_sqldb'
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: '123QWEasd'
+      MYSQL_ROOT_PASSWORD: 'supersecret'
+      MYSQL_DATABASE: 'db'
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
 
 
   mongo:

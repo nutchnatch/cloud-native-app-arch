@@ -1,6 +1,7 @@
 package org.template.demo.service;
 
-import com.mysql.jdbc.AssertionFailedException;
+//import com.mysql.jdbc.AssertionFailedException;
+import com.mysql.cj.exceptions.AssertionFailedException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.template.demo.AccountApplication;
 import org.template.demo.account.Account;
+import org.template.demo.account.AccountRepository;
 import org.template.demo.address.Address;
 import org.template.demo.address.AddressType;
 import org.template.demo.creditcard.CreditCard;
@@ -25,6 +27,9 @@ public class AccountApplicationTests {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private AccountRepository accountRepository;
+
     @Test
     public void customerTest() {
         Account account = new Account("12345");
@@ -37,11 +42,12 @@ public class AccountApplicationTests {
         customer.getAccount().getAddresses().add(address);
 
         customer = customerRepository.save(customer);
-        Customer persistedResult = customerRepository.findOne(customer.getId());
+        Customer persistedResult = customerRepository.findOne(customer.getCustomerId());
         Assert.assertNotNull(persistedResult.getAccount());
         Assert.assertNotNull(persistedResult.getCreatedAt());
         Assert.assertNotNull(persistedResult.getLastModified());
 
+        accountRepository.save(account);
         Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
                 .anyMatch(add -> address.getStreet1().equals(street1)));
 
