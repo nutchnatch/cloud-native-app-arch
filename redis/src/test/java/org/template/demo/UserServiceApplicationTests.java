@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest(classes = UserServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@ActiveProfiles(profiles = "development")
+@ActiveProfiles(profiles = "test")
 public class UserServiceApplicationTests {
 
  @Autowired
