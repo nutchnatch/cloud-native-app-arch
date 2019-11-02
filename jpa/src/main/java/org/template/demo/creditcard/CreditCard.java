@@ -24,7 +24,7 @@ public class CreditCard extends BaseEntity {
  @Enumerated(EnumType.STRING)
  private CreditCardType type;
 
- @ManyToOne
+ @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
  @JoinColumn(name="account_id")
  private Account account;
 

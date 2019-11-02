@@ -47,9 +47,8 @@ public class AccountApplicationTests {
         Assert.assertNotNull(persistedResult.getCreatedAt());
         Assert.assertNotNull(persistedResult.getLastModified());
 
-        accountRepository.save(account);
-        Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
-                .anyMatch(add -> address.getStreet1().equals(street1)));
+//        Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
+//                .anyMatch(add -> address.getStreet1().equals(street1)));
 
         customerRepository.findByEmailContaining(customer.getEmail())
                 .orElseThrow(() -> new AssertionFailedException(new RuntimeException("" +

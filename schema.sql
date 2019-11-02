@@ -7,7 +7,6 @@ DROP TABLE IF EXISTS account;
 
 CREATE TABLE account (
     account_id INT(10) UNSIGNED  NOT NULL AUTO_INCREMENT,
-    customer_id INT(10) UNSIGNED  default 0,
     accountNumber varchar(255) default null,
     createdAt INT UNSIGNED,
     lastModified INT UNSIGNED,
@@ -26,7 +25,7 @@ CREATE TABLE address (
     createdAt INT UNSIGNED,
     lastModified INT UNSIGNED,
     PRIMARY KEY(address_id),
-    CONSTRAINT address_account_id FOREIGN KEY (account_id) REFERENCES account (account_id)
+    CONSTRAINT account_id FOREIGN KEY (account_id) REFERENCES account (account_id)
 );
 
 CREATE TABLE credit_card (

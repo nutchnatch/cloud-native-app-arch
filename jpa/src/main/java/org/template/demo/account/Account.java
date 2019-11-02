@@ -30,10 +30,11 @@ public class Account extends BaseEntity {
  private Set<CreditCard> creditCards = new HashSet<>();
 
  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="account")
+// @JoinColumn(name = "account_id")
  private Set<Address> addresses = new HashSet<>();
 
- @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
- private Customer customer;
+// @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
+// private Customer customer;
 
  public Account(String accountNumber, Set<Address> addresses) {
   this.accountNumber = accountNumber;
