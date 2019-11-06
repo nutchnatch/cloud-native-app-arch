@@ -1,4 +1,4 @@
-package org.template.demo.ordders;
+package org.template.demo;
 
 import org.joda.time.DateTime;
 import org.springframework.boot.SpringApplication;

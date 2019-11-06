@@ -1,4 +1,4 @@
-package org.template.demo.ordders.data;
+package org.template.demo.data;
 
 import org.joda.time.DateTime;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;

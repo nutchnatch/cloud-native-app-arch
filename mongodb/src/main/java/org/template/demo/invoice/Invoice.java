@@ -1,9 +1,9 @@
-package org.template.demo.ordders.invoice;
+package org.template.demo.invoice;
 
-import org.template.demo.ordders.address.Address;
-import org.template.demo.ordders.address.AddressType;
-import org.template.demo.ordders.data.BaseEntity;
-import org.template.demo.ordders.order.Order;
+import org.template.demo.data.BaseEntity;
+import org.template.demo.address.Address;
+import org.template.demo.address.AddressType;
+import org.template.demo.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

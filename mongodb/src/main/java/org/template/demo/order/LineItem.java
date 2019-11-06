@@ -1,4 +1,4 @@
-package org.template.demo.ordders.order;
+package org.template.demo.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +14,9 @@ public class LineItem {
  private Integer quantity;
 
  private Double price, tax;
+
+ public void test() {
+
+ }
 
 }

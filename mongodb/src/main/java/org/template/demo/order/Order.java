@@ -1,8 +1,8 @@
-package org.template.demo.ordders.order;
+package org.template.demo.order;
 
-import org.template.demo.ordders.address.Address;
-import org.template.demo.ordders.address.AddressType;
-import org.template.demo.ordders.data.BaseEntity;
+import org.template.demo.data.BaseEntity;
+import org.template.demo.address.Address;
+import org.template.demo.address.AddressType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,5 +38,9 @@ public class Order extends BaseEntity {
 
  public void addLineItem(LineItem lineItem) {
   this.lineItems.add(lineItem);
+ }
+
+ public void setOrderStatus(OrderStatus status) {
+  this.orderStatus = status;
  }
 }

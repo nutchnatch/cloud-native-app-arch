@@ -1,6 +1,6 @@
-package org.template.demo.ordders.invoice;
+package org.template.demo.invoice;
 
-import org.template.demo.ordders.address.Address;
+import org.template.demo.address.Address;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface InvoiceRepository extends

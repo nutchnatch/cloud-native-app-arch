@@ -1,22 +1,20 @@
-package org.template.demo.customer;
+package data.bkp;
 
 import org.template.demo.account.Account;
 import org.template.demo.data.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Customer extends BaseEntity {
+//@Entity
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Table(name = "customer")
+public class CustomerBckp extends BaseEntity {
 
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id;
+ private Long customerId;
 
  private String firstName;
 
@@ -24,11 +22,12 @@ public class Customer extends BaseEntity {
 
  private String email;
 
- @OneToOne(cascade = CascadeType.ALL)
+ @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+ @JoinColumn(name = "account_id")
  private Account account;
 
- public Customer(String firstName, String lastName, String email,
-                 Account account) {
+ public CustomerBckp(String firstName, String lastName, String email,
+                     Account account) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.email = email;

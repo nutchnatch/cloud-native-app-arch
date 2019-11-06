@@ -1,4 +1,4 @@
-package org.template.demo.ordders.invoice;
+package org.template.demo.invoice;
 
 public enum InvoiceStatus {
  CREATED, SENT, PAID

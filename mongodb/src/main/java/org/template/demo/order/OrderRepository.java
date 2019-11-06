@@ -1,4 +1,4 @@
-package org.template.demo.ordders.order;
+package org.template.demo.order;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

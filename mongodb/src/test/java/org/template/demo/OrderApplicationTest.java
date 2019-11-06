@@ -1,21 +1,26 @@
-package org.template.demo.ordders;
+package org.template.demo;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.template.demo.ordders.address.Address;
-import org.template.demo.ordders.invoice.Invoice;
-import org.template.demo.ordders.invoice.InvoiceRepository;
-import org.template.demo.ordders.order.LineItem;
-import org.template.demo.ordders.order.Order;
-import org.template.demo.ordders.order.OrderRepository;
+import org.template.demo.address.Address;
+import org.template.demo.invoice.Invoice;
+import org.template.demo.invoice.InvoiceRepository;
+import org.template.demo.order.LineItem;
+import org.template.demo.order.Order;
+import org.template.demo.order.OrderRepository;
+
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.MOCK;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = OrderApplication.class)
+@AutoConfigureMockMvc
+@SpringBootTest(classes = { OrderApplication.class,
+OrderApplication.class }, webEnvironment = MOCK)
 public class OrderApplicationTest {
 
     @Autowired

@@ -15,6 +15,7 @@ import org.template.demo.catalog.Catalog;
 import org.template.demo.catalog.CatalogRepository;
 import org.template.demo.inventory.Inventory;
 import org.template.demo.inventory.InventoryRepository;
+import org.template.demo.inventory.InventoryStatus;
 import org.template.demo.product.Product;
 import org.template.demo.product.ProductRepository;
 import org.template.demo.shipment.Shipment;
@@ -29,8 +30,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static org.template.demo.inventory.InventoryStatus.IN_STOCK;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = InventoryApplication.class)
@@ -102,7 +101,7 @@ public class InventoryApplicationTests {
                 .stream()
                 .map(
                         p -> this.inventories.save(new Inventory(UUID.randomUUID().toString(), p,
-                                warehouse, IN_STOCK))).collect(Collectors.toSet());
+                                warehouse, InventoryStatus.IN_STOCK))).collect(Collectors.toSet());
         Shipment shipment = shipments.save(new Shipment(inventories, shipToAddress,
                 warehouse, ShipmentStatus.SHIPPED));
         Assert.assertEquals(shipment.getInventories().size(), inventories.size());

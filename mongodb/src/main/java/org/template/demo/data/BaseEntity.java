@@ -1,4 +1,4 @@
-package org.template.demo.ordders.data;
+package org.template.demo.data;
 
 import lombok.Data;
 import org.joda.time.DateTime;

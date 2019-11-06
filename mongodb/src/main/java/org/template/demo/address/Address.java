@@ -1,4 +1,4 @@
-package org.template.demo.ordders.address;
+package org.template.demo.address;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package org.template.demo.ordders.address;
+package org.template.demo.address;
 
 public enum AddressType {
  SHIPPING, BILLING

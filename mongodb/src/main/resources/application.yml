@@ -6,3 +6,12 @@ spring:
       database: orders
       #username: root
       #password: 123QWEasd
+
+axon:
+  ampq:
+    exchange: orders
+
+logging:
+  level:
+    org:
+      axonframeword: DEBUG

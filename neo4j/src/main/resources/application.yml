@@ -3,3 +3,9 @@ spring:
     neo4j:
       password: 123QWEasd
       username: neo4j
+
+axon:
+  eventhandling:
+    processors:
+      statistics:
+        source: shipments

@@ -21,7 +21,7 @@ import org.template.demo.customer.CustomerRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AccountApplication.class)
-@ActiveProfiles(profiles = "development")
+@ActiveProfiles(profiles = "test")
 public class AccountApplicationTests {
 
     @Autowired
@@ -42,13 +42,13 @@ public class AccountApplicationTests {
         customer.getAccount().getAddresses().add(address);
 
         customer = customerRepository.save(customer);
-        Customer persistedResult = customerRepository.findOne(customer.getCustomerId());
+        Customer persistedResult = customerRepository.findOne(customer.getId());
         Assert.assertNotNull(persistedResult.getAccount());
         Assert.assertNotNull(persistedResult.getCreatedAt());
         Assert.assertNotNull(persistedResult.getLastModified());
 
-//        Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
-//                .anyMatch(add -> address.getStreet1().equals(street1)));
+        Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
+                .anyMatch(add -> address.getStreet1().equals(street1)));
 
         customerRepository.findByEmailContaining(customer.getEmail())
                 .orElseThrow(() -> new AssertionFailedException(new RuntimeException("" +
