@@ -7,7 +7,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 import org.template.demo.address.Address;
 import org.template.demo.invoice.Invoice;
 import org.template.demo.invoice.InvoiceRepository;
@@ -19,8 +23,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
-@SpringBootTest(classes = { OrderApplication.class,
-OrderApplication.class }, webEnvironment = MOCK)
+@SpringBootTest(classes = OrderApplication.class)
+
 public class OrderApplicationTest {
 
     @Autowired
@@ -41,7 +45,7 @@ public class OrderApplicationTest {
 
         Address shippingAddress = new Address("1600 Pennsylvania Ave NW", null, "DC",
                 "Washington", "United States", 20500);
-        Order order = new Order("12345", shippingAddress);
+        Order order = new Order("1233456789", "12345", shippingAddress);
         order.addLineItem(new LineItem("Best. Cloud. Ever. (T-Shirt, Men's Large)",
                 "SKU-24642", 1, 21.99, .06));
         order.addLineItem(new LineItem("Like a BOSH (T-Shirt, Women's Medium)",

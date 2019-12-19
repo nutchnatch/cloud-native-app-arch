@@ -29,7 +29,8 @@ public class Order extends BaseEntity {
 
  private Address shippingAddress;
 
- public Order(String accountNumber, Address shippingAddress) {
+ public Order(String orderId, String accountNumber, Address shippingAddress) {
+  this.orderId = orderId;
   this.accountNumber = accountNumber;
   this.shippingAddress = shippingAddress;
   this.shippingAddress.setAddressType(AddressType.SHIPPING);

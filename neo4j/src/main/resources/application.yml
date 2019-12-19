@@ -4,8 +4,11 @@ spring:
       password: 123QWEasd
       username: neo4j
 
-axon:
-  eventhandling:
-    processors:
-      statistics:
-        source: shipments
+#axon:
+#  eventhandling:
+#    processors:
+#      shipments:
+#        source: shipments
+#
+#server:
+#  port: 8081
